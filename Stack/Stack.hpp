@@ -13,7 +13,7 @@ namespace st {
     public:
         Stack(int size) {  // не имеет смысла
             try {
-                sizeArray = size; // спорно
+                sizeArray = size;
                 stack_array.reserve(size);
             }
             catch (const std::bad_alloc &e) {
@@ -41,23 +41,22 @@ namespace st {
             sizeArray = 0;
         }
 
-
         ~Stack() {
             //delete stack_array;
         }
-
+        /// возвращает размер
         int size() {
             return sizeArray;
         }
-
+        /// возвращает true или false
         bool empty() {
             bool result = true;
             if (sizeArray != 0)
                 result = false;
             return result;
         }
-
-        void push(const T &item) {             /// добавляем элемент в стек
+        /// добавляем элемент в стек
+        void push(const T &item) {
             try {
                 sizeArray++;
                 stack_array.push_back(item);
@@ -66,19 +65,19 @@ namespace st {
                 std::cout << e.what() << std::endl;
             }
         }
-
-        void pop() {                           /// извлекаем элемент из стека
+        /// извлекаем элемент из стека
+        void pop() {
             if (!empty()) {
                 sizeArray--;
                 stack_array.pop_back();
             } else
-                throw std::out_of_range("popa exeption: WTF man, stack is empty");
+                throw std::out_of_range("pop exeption: man, stack is empty");
         }
-
-        T &top() {                             /// просто смотрим на элемент
+        /// просто смотрим на элемент
+        T &top() {
             if (!empty())
                 return stack_array[sizeArray - 1];
-            throw std::logic_error("topa exeption: WTF maaan! stack is empty!");
+            throw std::logic_error("top exeption: WTF maaan! stack is empty!");
         }
 
     private:
@@ -89,9 +88,6 @@ namespace st {
             for (const T item: st.stack_array) {
                 out << item << " ";
             }
-            /*for (int i = 0; i < st.sizeArray; i++) {
-                out<< st.stack_array[i] << " ";
-            }*/
             out << std::endl;
             return out;
         }
