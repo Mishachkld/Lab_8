@@ -16,7 +16,7 @@ namespace st {
                 sizeArray = size;
                 stack_array.reserve(size);
             }
-            catch (const std::bad_alloc &e) {
+            catch (const std::exception &e) {
                 std::cout << e.what() << std::endl;
             }
         }
@@ -27,8 +27,9 @@ namespace st {
                 for (int i = 0; i < sizeArray; i++)
                     stack_array.push_back(item);
             }
-            catch (const std::bad_alloc &e) {
+            catch (const std::exception &e) {
                 std::cout << e.what() << std::endl;
+                throw ;
             }
         }
 
@@ -61,7 +62,7 @@ namespace st {
                 sizeArray++;
                 stack_array.push_back(item);
             }
-            catch (const std::overflow_error &e) {
+            catch (const std::exception &e) {
                 std::cout << e.what() << std::endl;
             }
         }

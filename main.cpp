@@ -2,7 +2,7 @@
 #include "Stack/Stack.hpp"
 
 int main() {
-    st::Stack<int> stack(10,6);   // вывод реализован ч-з std::cout
+    st::Stack<int> stack(101214551151553156145);   // вывод реализован ч-з std::cout
     std::cout << stack.empty() << std::endl;                                 /// empty()
     //stack.top();
     for (int i = 0; i < 10; ++i) {
